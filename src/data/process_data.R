@@ -1,4 +1,5 @@
 library(ellipsenm)
+library(ntbox)
 library(leaflet)
 library(rgdal)
 library(tidyverse)
@@ -10,6 +11,8 @@ library(spocc)
 library(fasterize)
 library(geobr)
 library(kuenm)
+library(tmap)
+library(rgeos)
 
 # Data collection Lepav ---------------------------------------------------
 
@@ -86,7 +89,6 @@ occ <-
     !duplicated(paste(occ$longitude, occ$latitude)), 
     ]
 
-
 # join datas --------------------------------------------------------------
 
 occ %<>% 
@@ -126,38 +128,68 @@ split <- kuenm_occsplit(
   occ = occt, 
   train.proportion = 0.7,
   method = "random", save = T,
-  name = "Model_calibration/Records_with_thin/dhominis"
+  name = "data/workflow_maxent/Model_calibration/Records_with_thin/dhominis"
 )
 
 #-------------------Downloading, unzipping variables----------------------------
 
-r <- getData("worldclim", var = "bio", res = 10)
+r <- 
+  getData(
+  path = 'data/workflow_maxent/',
+  "worldclim", var = "bio", res = 10
+  )
 
+# baixar os cenários futuros
+
+# future <- 
+#   getData(
+#     path = 'data/workflow_maxent/',
+#     "worldclim", var = "bio", res = 10
+#   )
+
+plot(stack(r))
 #----------------------------Preparing variables--------------------------------
 
-neotropic <-
+brazil <-
   readOGR(
-    dsn = paste0("data/shapefile"),
-    layer = "neotropic",
+    dsn = paste0("data/shapefile/brazil_uf"),
+    layer = "BR_UF_2020",
     verbose = FALSE
   )
 
+# neotropic <-
+#   readOGR(
+#     dsn = paste0("data/shapefile"),
+#     layer = "neotropic",
+#     verbose = FALSE
+#   )
+
+#plot
+brazil@data$id <- 1
+
+plot(brazil)
+
 # Cortando as camadas de acordo com o shapefile
 
-nwd <- gUnaryUnion(neotropic, neotropic@data$id)
-
+nwd <- gUnaryUnion(brazil, brazil@data$id)
+plot(nwd)
 cells_nona <- cellFromPolygon(r[[1]], nwd)
 cellsids <- 1:ncell(r[[1]])
 cell_na <- cellsids[-cells_nona[[1]]]
 r[cell_na] <- NA
-plot(r[[1]])
+my_window <- extent(-73.99045, -28.847640, -33.75118, 5.271841)
+plot(my_window, col=NA)
+plot(r[[1]], add = T)
+
+plot()
 
 # Saving variables to new directory
-dir.create("bioclim_new")
+
+dir.create("data/workflow_maxent/bioclim_new/")
 
 lapply(names(r), function(x) {
   writeRaster(r[[x]],
-    paste0("bioclim_new/", x, ".asc"),
+    paste0("data/workflow_maxent/bioclim_new/", x, ".asc"),
     overwrite = T
   )
 })
@@ -186,7 +218,7 @@ explore_espace(
 
 # low corr
 
-lcor <- c(1, 2, 3, 10, 12, 15, 16, 18)
+lcor <- c(1, 2, 3, 10, 13, 16, 16, 18, 19)
 
 # exploring variable correlation in one plot for all
 
@@ -202,20 +234,20 @@ vcor <- variable_correlation(r,
 
 dev.off()
 
-# variables selected were bio: 1, 2, 3, 4, 10, 13, 15, 16, 17, 18, 19
+# variables selected were bio: 1, 2, 3, 10, 13, 16, 16, 18, 19
 
-dir.create("Model_calibration/Raw_variables_bio_lcor")
-dir.create("Model_calibration/M_variables")
+dir.create("data/workflow_maxent/Model_calibration/Raw_variables_bio_lcor")
+dir.create("data/workflow_maxent/Model_calibration/M_variables")
 
 file.copy(
-  from = paste0("bioclim_new/bio", lcor, ".asc"),
-  to = paste0("Model_calibration/Raw_variables_bio_lcor/bio", lcor, ".asc")
+  from = paste0("data/workflow_maxent/bioclim_new/bio", lcor, ".asc"),
+  to = paste0("data/workflow_maxent/Model_calibration/Raw_variables_bio_lcor/bio", lcor, ".asc")
 )
 
 vs <-
   kuenm_varcomb(
-    var.dir = "Model_calibration/Raw_variables_bio_lcor",
-    out.dir = "Model_calibration/M_variables",
+    var.dir = "data/workflow_maxent/Model_calibration/Raw_variables_bio_lcor",
+    out.dir = "data/workflow_maxent/Model_calibration/M_variables",
     min.number = 7, in.format = "ascii", out.format = "ascii"
   )
 
@@ -223,25 +255,27 @@ vs <-
 
 # PCA and projections
 
-dir.create("pcas")
-dir.create("pcas/pca_referenceLayers")
-dir.create("pcas/pca_proj")
+dir.create("data/workflow_maxent/pcas")
+dir.create("data/workflow_maxent/pcas/pca_referenceLayers")
+dir.create("data/workflow_maxent/pcas/pca_proj")
 
 s1 <- 
   spca(
     layers_stack = r, layers_to_proj = r,
-    sv_dir = "pcas/pca_referenceLayers", layers_format = ".asc",
-    sv_proj_dir = "pcas/pca_proj"
+    sv_dir = "data/workflow_maxent/pcas/pca_referenceLayers", 
+    layers_format = ".asc",
+    sv_proj_dir = "data/workflow_maxent/pcas/pca_proj"
   )
 
 # Read the pca object (output from ntbox function)
 
 f1 <- 
-  readRDS("pcas/pca_referenceLayers/pca_object22_05_04_17_36.rds")
+  readRDS("data/workflow_maxent/pcas/pca_referenceLayers/pca_object22_05_07_23_20.rds")
 
 # Summary
 
-f2 <- summary(f1)
+f2 <- 
+  summary(f1)
 
 # The scree plot
 
@@ -264,22 +298,28 @@ legend(
 dev.off()
 
 # PCs used were pc: 1, 2, 3, 4, 5, 6
-dir.create("Model_calibration/PCs_M")
+dir.create("data/workflow_maxent/Model_calibration/PCs_M")
 
 nums <- 1:6
 
 file.copy(
-  from = paste0("pcas/pca_referenceLayers/PC0", nums, ".asc"),
-  to = paste0("Model_calibration/PCs_M/PC0", nums, ".asc")
+  from = paste0("data/workflow_maxent/pcas/pca_referenceLayers/PC0", nums, ".asc"),
+  to = paste0("data/workflow_maxent/Model_calibration/PCs_M/PC0", nums, ".asc")
 )
 
 #  Criando a camada agro --------------------------------------------------
+
+mun <- 
+  geobr::read_municipality(code_muni = "all", year = 2010, showProgress = FALSE)
+
+mun$name_muni <-
+  tolower(mun$name_muni)
 
 # Data agro
 
 agro <-
   readOGR(
-    dsn = paste0("mun_agro"),
+    dsn = paste0("data/shapefile/mun_agro"),
     layer = "mun_agro",
     verbose = FALSE
   )
@@ -298,30 +338,16 @@ agro$MUNICIPIO <-
 agro$UF <-
   toupper(agro$UF)
 
-# Dados vetoriais
-
-mun <-
-  geobr::read_municipality(
-    code_muni = "all", year = 2010, showProgress = FALSE
-  )
-
-# map
-
-tm_shape(mun) +
-  tm_polygons()
-
-mun$name_muni <-
-  tolower(mun$name_muni)
-
 # Join
 
 mun_da <-
   dplyr::left_join(
     x = mun, y = agro,
-    by = c("name_muni" = "MUNICIPIO", "abbrev_state" = "UF")
+    by = c("name_muni" = "MUNICIPIO")
   )
 
 # Tem umas cidades que estão com null mas por erro de duplicata 
+
 #values_null <- mun_da %>%
 #  filter(is.na(V1))
 
@@ -337,7 +363,6 @@ tm_shape(bio_br) +
   tm_raster(pal = "Spectral", title = "BIO01") +
   tm_layout(legend.position = c("left", "bottom"))
 
-
 # criando o raster
 
 mun_agro_raster <-
@@ -351,19 +376,22 @@ map_agro <-
   tm_layout(legend.position = c("left", "bottom"))
 
 raster::writeRaster(x = mun_agro_raster, 
-                    filename = paste("Model_calibration/PCs_M/agro"),
+                    filename = paste("~/data/workflow_maxent/Model_calibration/PCs_M/PC07"),
                     suffix = agro,
                     bylayer = TRUE, 
                     options = c("COMPRESS=DEFLATE", "TFW=TRUE"), 
                     format = "ascii", 
                     progress = "text",
-                    overwrite = TRUE)
+                    overwrite = TRUE
+                    )
 
 dir.create("G_Variables")
 dir.create("G_Variables/Set_1")
-dir.create("G_Variables/Current")
+dir.create("G_Variables/Set_1/Current")
 
+nums <- 1:7 
+  
 file.copy(
-  from = "Model_calibration/PCs_M",
-  to = "G_Variables/Set_1/current"
-  )
+  from = paste0("~/data/workflow_maxent/Model_calibration/PCs_M/PC0", nums, ".asc"),
+  to = paste0("G_Variables/Set_1/Current/PC0", nums, ".asc")
+)

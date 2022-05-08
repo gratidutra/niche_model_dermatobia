@@ -10,13 +10,12 @@ library(maps)
 library(ntbox)
 
 #-----------------------Model candidate models----------------------------------
-
-occ_joint <- "Model_calibration/Records_with_thin/dhominis_joint.csv"
-occ_tra <- "Model_calibration/Records_with_thin/dhominis_train.csv"
-M_var_dir <- "Model_calibration/PCs_M"
-batch_cal <- "Candidate_models"
-out_dir <- "Candidate_Models"
-reg_mult <- c(0.1, 0.25, 0.5, 1, 2, 4)
+occ_joint <- "data/workflow_maxent/Model_calibration/Records_with_thin/dhominis_joint.csv"
+occ_tra <- "data/workflow_maxent/Model_calibration/Records_with_thin/dhominis_train.csv"
+M_var_dir <- "data/workflow_maxent/Model_calibration/PCs_M"
+batch_cal <- "data/workflow_maxent/Candidate_models"
+out_dir <- "data/workflow_maxent/Candidate_Models"
+reg_mult <- c(0.1, 0.25)
 f_clas <- c("lq", "lqp", "q")
 args <- NULL
 maxent_path <- getwd()
@@ -39,7 +38,8 @@ rand_percent <- 50
 iterations <- 500
 kept <- TRUE
 selection <- "OR_AICc"
-# Note, some of the variables used here as arguments were already created for the previous function
+# Note, some of the variables used here as arguments were already created 
+# for the previous function
 
 cal_eval <- kuenm_ceval(
   path = out_dir, occ.joint = occ_joint, occ.tra = occ_tra,
