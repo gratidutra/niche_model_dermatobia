@@ -1,0 +1,10 @@
+.config/rstudio
+.local/share/rstudio
+.Rproj.user
+data/workflow_maxent
+data/shapefile/south_america
+output/
+niche_dematobia.RData
+.cache
+.config
+.local

@@ -1,0 +1,218 @@
+<<rgbif citation>>
+   Citation: iNaturalist contributors, iNaturalist (2022). iNaturalist
+        Research-grade Observations. iNaturalist.org. Occurrence dataset
+        https://doi.org/10.15468/ab3s5x accessed via GBIF.org on 2022-05-05..
+        Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
+        2022-05-05
+   Rights: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+<<rgbif citation>>
+   Citation: European Bioinformatics Institute (EMBL-EBI), GBIF Helpdesk
+        (2021). INSDC Host Organism Sequences. Version 1.8. European Nucleotide
+        Archive (EMBL-EBI). Occurrence dataset https://doi.org/10.15468/e97kmy
+        accessed via GBIF.org on 2022-05-05.. Accessed from R via rgbif
+        (https://github.com/ropensci/rgbif) on 2022-05-05
+   Rights: http://creativecommons.org/licenses/by/4.0/legalcode
+<<rgbif citation>>
+   Citation: The International Barcode of Life Consortium (2022). International
+        Barcode of Life project (iBOL). Occurrence dataset
+        https://doi.org/10.15468/inygc6 accessed via GBIF.org on 2022-05-05..
+        Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
+        2022-05-05
+   Rights: http://creativecommons.org/licenses/by/4.0/legalcode
+<<rgbif citation>>
+   Citation: Orrell T, Informatics Office (2022). NMNH Extant Specimen Records
+        (USNM, US). Version 1.54. National Museum of Natural History,
+        Smithsonian Institution. Occurrence dataset
+        https://doi.org/10.15468/hnhrg3 accessed via GBIF.org on 2022-05-05..
+        Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
+        2022-05-05
+   Rights: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+<<rgbif citation>>
+   Citation: Orrell T, Informatics Office (2022). NMNH Material Samples (USNM).
+        Version 1.40. National Museum of Natural History, Smithsonian
+        Institution. Occurrence dataset https://doi.org/10.15468/jb9tdf
+        accessed via GBIF.org on 2022-05-05.. Accessed from R via rgbif
+        (https://github.com/ropensci/rgbif) on 2022-05-05
+   Rights: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+<<rgbif citation>>
+   Citation: European Bioinformatics Institute (EMBL-EBI), GBIF Helpdesk
+        (2021). INSDC Sequences. Version 1.8. European Nucleotide Archive
+        (EMBL-EBI). Occurrence dataset https://doi.org/10.15468/sbmztx accessed
+        via GBIF.org on 2022-05-05.. Accessed from R via rgbif
+        (https://github.com/ropensci/rgbif) on 2022-05-05
+   Rights: http://creativecommons.org/licenses/by/4.0/legalcode
+<<rgbif citation>>
+   Citation: Simpson A, Sellers E, Pagad S (2022). Global Register of
+        Introduced and Invasive Species - United States (Contiguous). Version
+        1.4. Invasive Species Specialist Group ISSG. Checklist dataset
+        https://doi.org/10.5066/p95xl09q accessed via GBIF.org on 2022-05-05..
+        Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
+        2022-05-05
+   Rights: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+<<rgbif citation>>
+   Citation: Zoologische Staatssammlung München/Staatliche
+        Naturwissenschaftliche Sammlungen Bayerns. Zoologische Staatssammlung
+        Muenchen - International Barcode of Life (iBOL) - Barcode of Life
+        Project Specimen Data. Occurrence dataset
+        https://doi.org/10.15468/tfpnkp accessed via GBIF.org on 2022-05-05..
+        Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
+        2022-05-05
+   Rights: http://creativecommons.org/licenses/by/4.0/legalcode
+<<rgbif citation>>
+   Citation: Sikes D (2022). UAM Insect Collection (Arctos). Version 39.62.
+        University of Alaska Museum of the North. Occurrence dataset
+        https://doi.org/10.15468/qs8slz accessed via GBIF.org on 2022-05-05..
+        Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
+        2022-05-05
+   Rights: http://creativecommons.org/licenses/by/4.0/legalcode
+<<rgbif citation>>
+   Citation: Vargas M (2016). Insecta of Costa Rica (INBio). Version 1.7.
+        Instituto Nacional de Biodiversidad (INBio), Costa Rica. Occurrence
+        dataset https://doi.org/10.15468/mykn0u accessed via GBIF.org on
+        2022-05-05.. Accessed from R via rgbif
+        (https://github.com/ropensci/rgbif) on 2022-05-05
+   Rights: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+<<rgbif citation>>
+   Citation: Huerta Jiménez H, Comisión nacional para el conocimiento y uso de
+        la biodiversidad C (2021). Actualización de la Colección de Artrópodos
+        con importancia médica (CAIM), Laboratorio de Entomología, InDRE.
+        Version 1.9. Comisión nacional para el conocimiento y uso de la
+        biodiversidad. Occurrence dataset https://doi.org/10.15468/y2rff2
+        accessed via GBIF.org on 2022-05-05.. Accessed from R via rgbif
+        (https://github.com/ropensci/rgbif) on 2022-05-05
+   Rights: http://creativecommons.org/licenses/by/4.0/legalcode
+<<rgbif citation>>
+   Citation: Grinter C, Fong J (2022). CAS Entomology (ENT). Version 6.176.
+        California Academy of Sciences. Occurrence dataset
+        https://doi.org/10.15468/3ibpmo accessed via GBIF.org on 2022-05-05..
+        Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
+        2022-05-05
+   Rights: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+<<rgbif citation>>
+   Citation: Grant S, Webbink K, Turcatel M, Shuman R (2022). Field Museum of
+        Natural History (Zoology) Insect, Arachnid and Myriapod Collection.
+        Version 12.45. Field Museum. Occurrence dataset
+        https://doi.org/10.15468/0ywfpc accessed via GBIF.org on 2022-05-05..
+        Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
+        2022-05-05
+   Rights: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+<<rgbif citation>>
+   Citation: Mertz W (2022). LACM Entomology Collection. Version 5.7. Natural
+        History Museum of Los Angeles County. Occurrence dataset
+        https://doi.org/10.15468/kc9hyp accessed via GBIF.org on 2022-05-05..
+        Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
+        2022-05-05
+   Rights: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+<<rgbif citation>>
+   Citation: Natural History Museum (2022). Natural History Museum (London)
+        Collection Specimens. Occurrence dataset
+        https://doi.org/10.5519/0002965 accessed via GBIF.org on 2022-05-05..
+        Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
+        2022-05-05
+   Rights: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+<<rgbif citation>>
+   Citation: Zamisa S, Midgley J (2022). kznm-entomology-collection.
+        KwaZulu-Natal Museum. Occurrence dataset
+        https://doi.org/10.15468/vf6as7 accessed via GBIF.org on 2022-05-05..
+        Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
+        2022-05-05
+   Rights: http://creativecommons.org/licenses/by/4.0/legalcode
+<<rgbif citation>>
+   Citation: Ciliberti P, Creuwels J (2022). Naturalis Biodiversity Center (NL)
+        - Diptera. Naturalis Biodiversity Center. Occurrence dataset
+        https://doi.org/10.15468/cl6p3l accessed via GBIF.org on 2022-05-05..
+        Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
+        2022-05-05
+   Rights: http://creativecommons.org/publicdomain/zero/1.0/legalcode
+<<rgbif citation>>
+   Citation: da Silva Soares Souto A, Felix M (2022). Fiocruz/CEIOC - Coleção
+        Entomológica do Instituto Oswaldo Cruz. Version 1.52. FIOCRUZ - Oswaldo
+        Cruz Foundation. Occurrence dataset https://doi.org/10.15468/bdv6wn
+        accessed via GBIF.org on 2022-05-05.. Accessed from R via rgbif
+        (https://github.com/ropensci/rgbif) on 2022-05-05
+   Rights: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+<<rgbif citation>>
+   Citation: MNHN, Chagnoux S (2022). The Diptera collection (ED) of the Muséum
+        national d'Histoire naturelle (MNHN - Paris). Version 67.256. MNHN -
+        Museum national d'Histoire naturelle. Occurrence dataset
+        https://doi.org/10.15468/becor5 accessed via GBIF.org on 2022-05-05..
+        Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
+        2022-05-05
+   Rights: http://creativecommons.org/licenses/by/4.0/legalcode
+<<rgbif citation>>
+   Citation: Dmitriev D (2015). Illinois Natural History Survey Insect
+        Collection. Illinois Natural History Survey. Occurrence dataset
+        https://doi.org/10.15468/eol0pe accessed via GBIF.org on 2022-05-05..
+        Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
+        2022-05-05
+   Rights: CC-BY
+<<rgbif citation>>
+   Citation: Carita D, Meister M, Ludes-Fraulob E, Wandhammer M (2020).
+        Hexapoda MZS. Version 1.1. Musée Zoologique de la Ville de Strasbourg.
+        Occurrence dataset https://doi.org/10.15468/r4h3g7 accessed via
+        GBIF.org on 2022-05-05.. Accessed from R via rgbif
+        (https://github.com/ropensci/rgbif) on 2022-05-05
+   Rights: http://creativecommons.org/licenses/by/4.0/legalcode
+[[1]]
+NULL
+
+[[2]]
+NULL
+
+[[3]]
+NULL
+
+[[4]]
+NULL
+
+[[5]]
+NULL
+
+[[6]]
+NULL
+
+[[7]]
+NULL
+
+[[8]]
+NULL
+
+[[9]]
+NULL
+
+[[10]]
+NULL
+
+[[11]]
+NULL
+
+[[12]]
+NULL
+
+[[13]]
+NULL
+
+[[14]]
+NULL
+
+[[15]]
+NULL
+
+[[16]]
+NULL
+
+[[17]]
+NULL
+
+[[18]]
+NULL
+
+[[19]]
+NULL
+
+[[20]]
+NULL
+
+[[21]]
+NULL
+
