@@ -43,7 +43,7 @@ all_species_gbif <-
 
 data_splink_raw <-
   rspeciesLink(
-    filename = "data_splink",
+    filename = "data/data_splink",
     species = 'Dermatobia hominis',
     Coordinates = "Yes",
     CoordinatesQuality = "Good"
@@ -108,6 +108,9 @@ write.csv(
   data_processed_2,
   paste0("data/processed/",sp_name,"_processed.csv")
   )
+
+# data_processed_2 <- 
+#   read.csv(paste0("data/processed/",sp_name,"_processed.csv"))
 
 # criando objeto pro plot via tmap e plotando
 
