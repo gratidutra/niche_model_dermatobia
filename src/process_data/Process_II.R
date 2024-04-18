@@ -30,7 +30,7 @@ for (km in seq_along(buffer_area_list)) {
     
     occ <- read.csv(paste0(
       path_workflow, "/", sp_name, "_joint.csv"
-    )) %>% select(-X)
+    )) %>% dplyr::select(-X)
     
     
     WGS84 <- CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0")
@@ -50,7 +50,9 @@ for (km in seq_along(buffer_area_list)) {
     
     ## create a buffer based on a 500 km distance
     buffer_area <- gBuffer(occ_pr, width = km * 1000, quadsegs = 30)
-    #buffer_area <- sp::disaggregate(buffer_area)
+    #debugar, essa parte ta dando erro mais pra frente por não funcionar 
+    buffer_area_terra <- terra::vect(buffer_area)
+    buffer_area_disagg <- disagg(buffer_area_terra)
     
     ## reproject
     buffer_area <- spTransform(buffer_area, WGS84)
