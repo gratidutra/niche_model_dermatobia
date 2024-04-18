@@ -9,3 +9,4 @@ niche_dematobia.RData
 .config
 .local
 src/n_sei.R
+.env
